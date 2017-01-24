@@ -1,0 +1,57 @@
+##contig=<ID=chr1,length=249250621>
+##contig=<ID=chr2,length=243199373>
+##contig=<ID=chr3,length=198022430>
+##contig=<ID=chr4,length=191154276>
+##contig=<ID=chr5,length=180915260>
+##contig=<ID=chr6,length=171115067>
+##contig=<ID=chr7,length=159138663>
+##contig=<ID=chr8,length=146364022>
+##contig=<ID=chr9,length=141213431>
+##contig=<ID=chr10,length=135534747>
+##contig=<ID=chr11,length=135006516>
+##contig=<ID=chr12,length=133851895>
+##contig=<ID=chr13,length=115169878>
+##contig=<ID=chr14,length=107349540>
+##contig=<ID=chr15,length=102531392>
+##contig=<ID=chr16,length=90354753>
+##contig=<ID=chr17,length=81195210>
+##contig=<ID=chr18,length=78077248>
+##contig=<ID=chr19,length=59128983>
+##contig=<ID=chr20,length=63025520>
+##contig=<ID=chr21,length=48129895>
+##contig=<ID=chr22,length=51304566>
+##contig=<ID=chrX,length=155270560>
+##FILTER=<ID=Uncertain,Description="Uncertain genotype due to reason in filter INFO field">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="RTG Phase set for the genotype">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Net Genotype across all datasets">
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  NA12878
+chr5	174955572	.	A	T	50	.	.	GT:PS	1|0:174955572
+chr5	174955584	.	C	T	50	.	.	GT:PS	1|0:174955572
+chr6	33032822	.	G	A	50	.	.	GT:PS	1|0:33032822
+chr6	33032831	.	G	A	50	.	.	GT:PS	1|0:33032822
+chr6	33032853	.	C	T	50	.	.	GT:PS	1|0:33032822
+chr6	33032861	.	G	A	50	.	.	GT:PS	1|0:33032822
+chr6	33032865	.	A	C	50	.	.	GT:PS	1|0:33032822
+chr6	33032905	.	T	C	50	.	.	GT:PS	1|0:33032822
+chr6	33032968	.	G	A	50	.	.	GT:PS	1|0:33032822
+chr6	33032975	.	T	C	50	.	.	GT:PS	1|0:33032822
+chr6	33033022	.	A	G	50	.	.	GT:PS	1|0:33032822
+chr6	33033055	.	A	T	50	.	.	GT:PS	1|0:33032822
+chr6	33033058	.	T	C	50	.	.	GT:PS	1|0:33032822
+chr6	33036959	.	G	A	50	.	.	GT:PS	1|0:33032822
+chr6	33037557	.	C	T	50	.	.	GT:PS	1|0:33032822
+chr7	138731810	.	T	C	50	.	.	GT:PS	1|0:138731810
+chr7	138731843	.	C	T	50	.	.	GT:PS	1|0:138731810
+chr7	138731859	.	G	T	50	.	.	GT:PS	1|0:138731810
+chr7	138731898	.	C	T	50	.	.	GT:PS	1|0:138731810
+chr7	138731904	.	C	T	50	.	.	GT:PS	1|0:138731810
+chr7	138731967	.	C	T	50	.	.	GT:PS	1|0:138731810
+chr7	138731988	.	T	A	50	.	.	GT:PS	1|0:138731810
+chr9	19376255	.	A	C	50	.	.	GT:PS	1|0:19376255
+chr9	19376258	.	G	C	50	.	.	GT:PS	1|0:19376255
+chr11	67352689	.	A	G	50	.	.	GT:PS	1|0:67352689
+chr11	67353579	.	C	T	50	.	.	GT:PS	1|0:67352689
+chr19	18285944	.	G	A	50	.	.	GT:PS	1|0:18285944
+chr19	18288069	.	A	G	50	.	.	GT:PS	1|0:18285944
+chr22	36863491	.	G	A	50	.	.	GT:PS	1|0:36863491
+chr22	36863705	.	C	T	50	.	.	GT:PS	1|0:36863491

@@ -1,0 +1,207 @@
+Comparing phasings for sample NA12878
+FILENAMES
+  file0 = tophat_scphaser_cv/scphaser_tophat_6_1.vcf
+  file1 = ../vcf_NA12878_giab/NA12878_chr_het_GTPS.vcf
+---------------- Chromosome chr15 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:         2 /         2
+              file1:     54291 /     54291
+              UNION:     54291 /     54291
+       INTERSECTION:         2 /         2
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:         2
+         (restricting to these below)
+        non-singleton blocks in file0:         1
+                 --> covered variants:         2
+        non-singleton blocks in file1:         1
+                 --> covered variants:         2
+    non-singleton intersection blocks:         1
+                 --> covered variants:         2
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
+---------------- Chromosome chr22 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:         2 /         2
+              file1:     21650 /     21650
+              UNION:     21650 /     21650
+       INTERSECTION:         2 /         2
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:         2
+         (restricting to these below)
+        non-singleton blocks in file0:         1
+                 --> covered variants:         2
+        non-singleton blocks in file1:         1
+                 --> covered variants:         2
+    non-singleton intersection blocks:         1
+                 --> covered variants:         2
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
+---------------- Chromosome chr3 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:         2 /         2
+              file1:    142080 /    142080
+              UNION:    142080 /    142080
+       INTERSECTION:         2 /         2
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:         2
+         (restricting to these below)
+        non-singleton blocks in file0:         1
+                 --> covered variants:         2
+        non-singleton blocks in file1:         1
+                 --> covered variants:         2
+    non-singleton intersection blocks:         1
+                 --> covered variants:         2
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
+---------------- Chromosome chr6 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:        22 /        22
+              file1:    133726 /    133726
+              UNION:    133726 /    133726
+       INTERSECTION:        22 /        22
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:        22
+         (restricting to these below)
+        non-singleton blocks in file0:         3
+                 --> covered variants:        22
+        non-singleton blocks in file1:         1
+                 --> covered variants:        22
+    non-singleton intersection blocks:         3
+                 --> covered variants:        22
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:        19
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:        16
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
+---------------- Chromosome chr7 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:         3 /         3
+              file1:    116448 /    116448
+              UNION:    116448 /    116448
+       INTERSECTION:         3 /         3
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:         3
+         (restricting to these below)
+        non-singleton blocks in file0:         1
+                 --> covered variants:         3
+        non-singleton blocks in file1:         1
+                 --> covered variants:         3
+    non-singleton intersection blocks:         1
+                 --> covered variants:         3
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         2
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         2
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
+---------------- Chromosome chr8 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:         3 /         3
+              file1:    107847 /    107847
+              UNION:    107847 /    107847
+       INTERSECTION:         3 /         3
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:         3
+         (restricting to these below)
+        non-singleton blocks in file0:         1
+                 --> covered variants:         3
+        non-singleton blocks in file1:         1
+                 --> covered variants:         3
+    non-singleton intersection blocks:         1
+                 --> covered variants:         3
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         2
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         2
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
+---------------- Chromosome chr9 ----------------
+VARIANT COUNTS (heterozygous / all): 
+              file0:         2 /         2
+              file1:     86449 /     86449
+              UNION:     86449 /     86449
+       INTERSECTION:         2 /         2
+PAIRWISE COMPARISON: file0 <--> file1:
+         common heterozygous variants:         2
+         (restricting to these below)
+        non-singleton blocks in file0:         1
+                 --> covered variants:         2
+        non-singleton blocks in file1:         1
+                 --> covered variants:         2
+    non-singleton intersection blocks:         1
+                 --> covered variants:         2
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         1
+                        switch errors:         0
+                    switch error rate:     0.00%
+            switch/flip decomposition:       0/0
+                     switch/flip rate:     0.00%
+                     Hamming distance:         0
+                 Hamming distance [%]:     0.00%
