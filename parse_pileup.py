@@ -1,12 +1,13 @@
 import sys
 
-fileNum = 28
+fileNum = 1
 prefix = ["SRR764"] * fileNum
 num = range(782, 798) + range(802, 814)
+#num = range(782, 783)# + range(802, 814)
 fileName = []
 for i in range(0, fileNum):
         fileName.append(prefix[i] + str(num[i]) + "/output/pileup")
-        #fileName.append(prefix[i] + str(num[i]) + "/star_output/pileup_30")
+
 for name in fileName:
 	inFile = open(name,'r')
 	
