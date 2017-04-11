@@ -16,7 +16,6 @@ num = range(782, 798) + range(802, 814)
 fileName = []
 for i in range(0, fileNum):
 	fileName.append(prefix[i] + str(num[i]) + "/output/")
-	#fileName.append(prefix[i] + str(num[i]) + "/star_output/")
 
 chrName = []
 chrSnpList = {}
@@ -29,7 +28,7 @@ chrPosList = {}
 for i in chrName:
 	chrPosList.update({i:{}})
 
-reader = vcf.Reader(filename = '../vcf_NA12878_giab/NA12878_exon.vcf')
+reader = vcf.Reader(filename = '../vcf_NA12878_giab/NA12878_snp_exon.vcf')
 for var in reader:
 	posDict = chrPosList[var.CHROM]
 	pos = int(var.POS)
@@ -44,7 +43,6 @@ for name in fileName:
 		chrSnpList.update({index:{}})
 
 	count_file = name + 'pileup.count'
-	#count_file = name + 'pileup_30.count'
 	curChr = ""
 	f_out = open(name + "snp_info_tophat_30.csv", 'w')	
 	with open(count_file, 'rb') as f:
