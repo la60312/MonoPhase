@@ -2,33 +2,34 @@ import vcf
 import csv
 import os
 import math
-
+import sys
+from os import listdir
+from os.path import isfile, join
 
 def getPos(snp):
 	mapList = {'A':2, 'G':3, 'C':4, 'T':5}
 	return int(mapList[snp])
 
-chrList = {}
-posList = []
-fileNum = 28 
-prefix = ["SRR764"] * fileNum
-num = range(782, 798) + range(802, 814)
-fileName = []
-for i in range(0, fileNum):
-	fileName.append(prefix[i] + str(num[i]) + "/output/")
+input_dir = sys.argv[1]
+vcf_file = sys.argv[2]
 
+input_file_list = [f for f in listdir(input_dir) if isfile(join(input_dir, f))]  
+input_file_list = [input_dir + "/" + fi for fi in input_file_list if fi.endswith(".count")]       
+
+# Chr name list init
 chrName = []
-chrSnpList = {}
 for i in range(1, 23):
 	chrName.append('chr' + str(i))
 
 chrName.append('chrX')
 
+# chr dict init
 chrPosList = {}
 for i in chrName:
 	chrPosList.update({i:{}})
 
-reader = vcf.Reader(filename = '../vcf_NA12878_giab/NA12878_snp_exon.vcf')
+# Save all snp into dict
+reader = vcf.Reader(filename = vcf_file)
 for var in reader:
 	posDict = chrPosList[var.CHROM]
 	pos = int(var.POS)
@@ -37,14 +38,16 @@ for var in reader:
 		alt = var.ALT
 		posDict.update({pos:{'ref':ref, 'alt':alt}})
 
-
-for name in fileName:
+chrSnpList = {}
+for file_name in input_file_list:
 	for index in chrName:
 		chrSnpList.update({index:{}})
 
-	count_file = name + 'pileup.count'
+	name = '.'.join(file_name.split('.')[:-1])
+	count_file = name + '.count'
+
 	curChr = ""
-	f_out = open(name + "snp_info_tophat_30.csv", 'w')	
+	f_out = open(name + ".snp_count.csv", 'w')	
 	with open(count_file, 'rb') as f:
 		reader = csv.reader(f, delimiter='\t')
 		reader.next()
