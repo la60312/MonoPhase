@@ -2,19 +2,23 @@ import vcf
 import csv
 import os
 import sys
+from os import listdir
+from os.path import isfile, join
 
 chr_list = {}
 pos_list = {}
 snp_list = {}
 snp_chr_list = {}
 
-min_count = sys.argv[1]
-fc = sys.argv[2]
-min_sample = sys.argv[3]
-cmd_type = sys.argv[4]
+input_dir = sys.argv[1]
+snp_info = sys.argv[2]
+min_count = sys.argv[3]
+fc = sys.argv[4]
+min_sample = sys.argv[5]
 
 # Get mapping of gene and snp
-with open('../annovar/NA12878_pos_info.txt', 'rb') as f:
+#'../annovar/NA12878_snp_pos_info.txt'
+with open(snp_info, 'rb') as f:
 	reader = csv.reader(f, delimiter='\t')
 	chr_name = ""
     	for row in reader:
@@ -33,35 +37,11 @@ with open('../annovar/NA12878_pos_info.txt', 'rb') as f:
 
 chr_list.update({chr_name: pos_list})
 
-# Get mpapping of snp and snp id
-with open('../annovar/NA12878_chr_het_GTPS.vcf.avinput.hg19_snp138_dropped', 'rb') as f:
-	reader = csv.reader(f, delimiter='\t')
-	chr_name = ""
-    	for row in reader:
-		if chr_name != row[2]:
-			if chr_name == "":
-				chr_name = row[2]
-			else:
-				snp_chr_list.update({chr_name: snp_list})
-				snp_list = {}
-				chr_name = row[2]
-		snp_list.update({int(row[3]):row[1]})
-
-snp_chr_list.update({chr_name: snp_list})
-
 print "ucscGene complete"
 
-fileNum = 28
-prefix = ["SRR764"] * fileNum
-num = range(782, 798) + range(802, 814)
-file_name = []
-for i in range(0, fileNum):
-	if cmd_type == "star":
-        	file_name.append(prefix[i] + str(num[i]) + "/star_output/")
-	else:
-        	file_name.append(prefix[i] + str(num[i]) + "/output/")
+input_file_list = [f for f in listdir(input_dir) if isfile(join(input_dir, f))]
+input_file_list = [input_dir + '/' + fi for fi in input_file_list if fi.endswith(".binomial")]
 
-chrMonoList = {}
 chrMonoCountList = {}
 chr_name = []                                                                                                                                              
 for i in range(1, 23):
@@ -74,12 +54,7 @@ for name in chr_name:
 
 # Get the count of each snp across all samples
 snp_count = {}
-for name in file_name:
-	#if cmd_type == "sc":
-	#	input_name = name + 'binomial_snp_sc.csv'
-	#else:
-	input_name = name + 'binomial_snp_' + min_count + '_' + fc + '.csv'
-		
+for input_name in input_file_list:
 	with open(input_name, 'rb') as f:
 		reader = csv.reader(f, delimiter=' ')
 		next(reader)
@@ -87,14 +62,14 @@ for name in file_name:
 			snp_count = chrMonoCountList[row[1]]
 			pos = int(row[2])
 			count = 0
-			if pos in snp_chr_list[row[1]]:
-				if pos in snp_count:
-					count = snp_count[pos]
-				count = count + 1			
-				snp_count.update({pos:count})
+			#if pos in snp_chr_list[row[1]]:
+			if pos in snp_count:
+				count = snp_count[pos]
+			count = count + 1			
+			snp_count.update({pos:count})
 
 sample_snp_dict = []
-for i in range(1, 29):
+for i in range(1, len(input_file_list) + 1):
 	chr_dict = {}
 	for name in chr_name:
 		chr_dict.update({name:{}})
@@ -110,11 +85,7 @@ for chr_index in chr_name:
 # For each sample, if the snp count in total greater and equal than 5, then put into sample_snp_dict[sample][chr][gene_id]
 # In sample_snp_dict[sample][chr][gene_id], is a dict to store each position pos:{ref, alt, ratio, gt}
 sample_index = 0
-for name in file_name:
-	#if cmd_type == "sc":
-	#	input_name = name + 'binomial_snp_sc.csv'
-	#else:
-	input_name = name + 'binomial_snp_' + min_count + '_' + fc + '.csv'
+for input_name in input_file_list:
 	with open(input_name, 'rb') as f:
 		reader = csv.reader(f, delimiter=' ')
 		reader.next()
@@ -122,7 +93,8 @@ for name in file_name:
 			snp_count = chrMonoCountList[row[1]]
 			pos = int(row[2])
 			count = 0
-			if pos in snp_chr_list[row[1]] and chr_list[row[1]].has_key(pos):
+			#if pos in snp_chr_list[row[1]] and chr_list[row[1]].has_key(pos):
+			if chr_list[row[1]].has_key(pos):
 				gene = chr_list[row[1]][pos]
 				if snp_count[pos] >= int(min_sample):
 				#if snp_count[pos] >= 0:
@@ -158,14 +130,9 @@ for chr_index in chr_name:
 			
 
 sample_index = 0
-for name in file_name:
-	#if cmd_type == "sc":
-	#	out_name = name + 'mono_gene_5_sc.csv'
-	#else:
-	out_name = name + 'mono_gene_' + min_sample + '_' + min_count + '_' + fc +'.csv'
+for name in input_file_list:
+	out_name = name + '.mono_gene'
 
-
-	#with open(name + 'mono_gene_5_30.csv', 'wb') as f:
 	with open(out_name, 'wb') as f:
 		writer = csv.writer(f)
 		for chr_index in chr_name:
