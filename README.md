@@ -9,7 +9,7 @@ Please add samtools in your $PATH
 ## Preprocessing
 python preproc.py
 
-* --input The directory of input files
+* --input The directory of input BAM files
 * --output The directory for output
 * --ref_genome Reference genome file
 * --snp_pos SNP position file
@@ -20,16 +20,32 @@ python preproc.py
 Contain the chrmosome name and position of SNPs
 
 For example:
+```
 chr1    863511
 chr1    876200
 chr1    883899
 chr1    884767
 chr1    909419
+```
+
+### Output files
+*.pileup is the pileup file which generated from samtools mpileup
+*.pileup.count is the file which is the output from parsing pileup file
+*.pileup.snp_count.csv is the final output of preprocessing. The file contains the chr, pos, fold-change, ref count, alt count, genotype of each SNP.
+```
+chr1,949608,0.00310559006211,1,321,"[0, 1]"
+chr1,982444,1.0,4,0,"[0, 1]"
+chr1,1017341,1.0,47,0,"[0, 1]"
+chr1,6693097,0.9875,79,1,"[0, 1]"
+chr1,6948204,1.0,57,0,"[0, 1]"
+chr1,10215207,0.0,0,17,"[0, 1]"
+```
+We then use *.pileup.snp_count.csv as input in the next step.
 
 ## Analysis
 python analysis.py
 
-* --input The directory of input files
+* --input The directory of input files (*.pileup.snp_count.csv)
 * --output The directory for output
 * --snp_info File which contains mapping snp to gene
 * --min_count Minimun reads which cover the snp, default: 3
@@ -39,6 +55,7 @@ python analysis.py
 ### SNP info file
 File which contains mapping snp to gene. It can be generated from ANNOVAR.
 For example:
+```
 NOC2L   chr1    883899  T       G
 PLEKHN1 chr1    909419  C       T
 PLEKHN1(uc001acd.3:c.*439C>T,uc001acf.3:c.*439C>T,uc001ace.3:c.*439C>T) chr1    910394  C       T
@@ -53,15 +70,17 @@ AGRN(uc001ack.2:c.*156C>T)      chr1    990517  C       T
 AGRN(uc001ack.2:c.*412C>T)      chr1    990773  C       T
 AGRN(uc001ack.2:c.*445G>A)      chr1    990806  G       A
 AGRN(uc001ack.2:c.*623G>A)      chr1    990984  G       A
+```
 
-###Output file
+### Output file
 The output file will be named as *.mono_gene
 We generate one output file for each cells, and it contains the monoallelic expressed gene on this cell.
 The format is as followed(chr, gene name, position, haplotype, p-value).
 
+```
 chr1,DHDDS,"[26797508, 26797654]",10,01,"[4.51727170970332e-45, 2.29588740394977e-41]"
 chr1,C1orf123,"[53679878, 53680090, 53681699]",110,001,"[9.31322574615477e-10, 1.35750788731466e-44, 6.37236764452993e-58]"
 chr1,SDCCAG8,"[243468694, 243469029]",11,00,"[1.5407439555098e-33, 2.24207754291969e-44]"
 chr1,KIF14,"[200521412, 200522269, 200522351, 200534248]",0000,1111,"[1.50463276905254e-36, 0.015625, 0.0078125, 0.00390625]"
 chr1,LAPTM5,"[31205796, 31215364]",00,11,"[2.35098870164461e-38, 5.82076609134676e-11]"
-
+```
